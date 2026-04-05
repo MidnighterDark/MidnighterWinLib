@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,7 +86,7 @@
 				alt="icon"
 				style="position: absolute; width: 3%"
 			/>
-			<h2
+			<p
 				style="
 					font-size: 30px;
 					margin-top: 10px;
@@ -95,12 +95,22 @@
 				"
 			>
 				Midnighter WinLib
-			</h2>
+			</p>
 			<div id="header-background"></div>
 		</div>
 		<!--body-->
 		<div class="body-page">
 			<div id="background-left-banner">
+				<h4
+					style="
+						transform: translate(-50%, 0);
+						margin-left: 50%;
+						margin-top: 10px;
+						margin-bottom: 10px;
+					"
+				>
+					Скачать:
+				</h4>
 				<a href="javascript:set_cdrs('MidnighterWinLib1.1v')"
 					>Download WinLib v1.1</a
 				><br />
@@ -115,7 +125,68 @@
 				><br />
 			</div>
 			<div id="news-page">
-				<p></p>
+				<h2 style="margin-left: 50%; transform: translate(-20%, 0)">
+					Новости
+				</h2>
+				<div id="news-scrollbar">
+					<p id="header">Сегодня я выпустил обновление 1.1!!!</p>
+					<p>
+						Документации пока нет, да и вообще я создал эту
+						библиотеку ради интереса.
+					</p>
+					<br />
+					<p>
+						Вряд ли кто-нибудь захочет ею (библиотекой)
+						воспользоваться.
+					</p>
+					<br />
+					<p id="header">Вот краткий обзор классов и их методов:</p>
+					<p id="note">
+						Данная библиотека создана для работы с GDI и WindowsAPI,
+						что в сущьности включено одно в другое.
+					</p>
+					<p>
+						Класс wl::Window для создания окна. Окон может быть
+						(технически) до 10000 (зависит от технических
+						возможностей пк и версии Windows).
+					</p>
+					<br />
+					<p>
+						Первый параметр в конструкторе wl::Window это
+						wl::WindowTransform для редактирования позиции и размера
+						окна.
+					</p>
+					<br />
+					<p>
+						Структура wl::WindowTransform хранит в себе posX, posY,
+						sizeX, sizeY отвечающие соответственно за положение окна
+						по X и Y координатам и за размер по тем-же координатам.
+					</p>
+					<br />
+					<p>
+						Второй параметр конструктора wl::Window это строка либо
+						узкая, либо широкая - это заголовок окна.
+					</p>
+					<br />
+					<p>
+						Третий и последний параметр это стиль окна.
+						<br />
+						Стили окна:
+						<br />
+						<b>Default</b> - зто стандартный стиль. Включает в себя
+						все стандарнтные кнопки и иконки окна, а так-же
+						загаловок.
+						<br />
+						<b>DefaultNoResize</b> - это тот-же
+						<b>Default</b> только без возможности изменения размера.
+						<br />
+						<b>Border</b> - это голое окно. Просто барьер
+						определённого размера.
+						<br />
+						<b>Fullscreen</b> - этот стиль обычно пременяют в играх
+						он растягивает окно на весь экран.
+					</p>
+				</div>
 			</div>
 			<div id="background-right-banner"></div>
 		</div>
