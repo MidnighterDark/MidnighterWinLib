@@ -9,22 +9,110 @@
 		<title>Midnighter WinLib</title>
 	</head>
 	<body>
+		<div class="something-hide">
+			<div id="download-list">
+				<div
+					style="
+						width: 700px;
+						height: 500px;
+						border: 1px solid black;
+						background-color: white;
+						margin: 100%;
+						margin-top: 50%;
+						transform: translate(-50%, -50%);
+						box-shadow: 55px 55px 0px rgba(0, 0, 0, 0.8);
+					"
+				>
+					<div>
+						<img
+							id="close-download-list"
+							src="res/imgclose.png"
+							alt="Закрыть"
+							style="
+								position: fixed;
+								width: 4%;
+								margin-left: 95%;
+								margin-top: 1%;
+							"
+						/>
+					</div>
+					<!--This is a box-->
+					<h2
+						style="
+							font-size: 20px;
+							margin-left: 350px;
+							transform: translate(-30%, 0%);
+						"
+					>
+						Download WinLib:
+					</h2>
+					<div style="display: flex; gap: 67%; margin-top: 50px">
+						<h2 style="margin: 0; margin-left: 10%"><b>.zip</b></h2>
+						<h2 style="margin: 0"><b>.rar</b></h2>
+					</div>
+					<div style="display: flex; margin-top: 20px">
+						<div
+							style="
+								width: 200px;
+								height: 300px;
+								border: 1px solid;
+							"
+						>
+							<a
+								href="javascript:checkURL('rdownload/'+_current_download_res_select + '.zip')"
+								><p id="_download_list_link_zip_text"></p
+							></a>
+						</div>
+						<div
+							style="
+								width: 200px;
+								height: 300px;
+								border: 1px solid;
+								margin-left: 45%;
+							"
+						>
+							<a href="javascript:alert('Временно недоступно!!!')"
+								><p id="_download_list_link_rar_text"></p
+							></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!--header-->
 		<div class="header-page">
-			<h2 style="font-size: 30px; margin-top: 10px">Midnighter WinLib</h2>
+			<img
+				src="res/icon.png"
+				alt="icon"
+				style="position: absolute; width: 3%"
+			/>
+			<h2
+				style="
+					font-size: 30px;
+					margin-top: 10px;
+					margin-left: 60px;
+					padding-top: 5px;
+				"
+			>
+				Midnighter WinLib
+			</h2>
 			<div id="header-background"></div>
 		</div>
 		<!--body-->
 		<div class="body-page">
 			<div id="background-left-banner">
-				<a
-					href="https://midnighterdark.github.io/MidnighterWinLib/rdownload/MidnighterWinLibv1.0.zip"
+				<a href="javascript:set_cdrs('MidnighterWinLib1.1v')"
+					>Download WinLib v1.1</a
+				><br />
+				<a href="javascript:set_cdrs('MidnighterWinLib1.1vSourceCode')"
+					>Download WinLib v1.1 source code</a
+				><br />
+				<a href="javascript:set_cdrs('MidnighterWinLibv1.0')"
 					>Download WinLib v1.0</a
-				>
-				<a
-					href="https://midnighterdark.github.io/MidnighterWinLib/rdownload/MidnighterWinLibv1.0SourceCode.zip"
+				><br />
+				<a href="javascript:set_cdrs('MidnighterWinLibv1.0SourceCode')"
 					>Download WinLib v1.0 source code</a
-				>
+				><br />
 			</div>
 			<div id="news-page">
 				<p></p>
