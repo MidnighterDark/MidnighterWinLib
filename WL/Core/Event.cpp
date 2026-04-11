@@ -9,10 +9,6 @@ Vector2i Mouse::getGlobalMousePos()
 }
 bool Event::isPressed(Key::Type key) const
 {
-	return keyState[key];
-}
-bool(&Event::getKeyState())[256]
-{
-	return keyState;
+	return (GetAsyncKeyState(key) & 0x8000) != 0;
 }
 WL_NAMESPACE_END

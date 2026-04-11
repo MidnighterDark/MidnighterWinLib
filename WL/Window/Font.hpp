@@ -6,14 +6,18 @@
 #include <WL/Core/String.hpp>
 #include <WL/Core/Container.hpp>
 WL_NAMESPACE_BEGIN
-class Font {
-	String _FontFamalyName;
+class WINLIB_API Font {
+	String _FontFamalyName = "Arial";
 	String _Path;
 public:
 	Font() = default;
+	Font(String fontFamalyName);
 	~Font();
-	bool loadFromFile(String path);
+	//Load from TTF (True Type Font) file
+	bool   loadFromFile(String path);
+	//For get Font Famaly's name
 	String getFontFamalyName() const;
+	//Default font
 	static const Font DefaultOS;
 };
 WL_NAMESPACE_END

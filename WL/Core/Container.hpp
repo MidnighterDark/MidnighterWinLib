@@ -5,6 +5,7 @@
 #include <WL/Core/Core.hpp>
 #include <iostream>
 WL_NAMESPACE_BEGIN
+//Copy memory from _Dest to _Src
 template<typename T>
 void memcopy(T* _Dest, T* _Src, Uint32 _Quat)
 {
@@ -12,6 +13,7 @@ void memcopy(T* _Dest, T* _Src, Uint32 _Quat)
 		_Dest[i] = _Src[i];
 	}
 }
+//This object like std::vector
 template<typename T>
 class container {
 	T* _Data = nullptr;
@@ -25,10 +27,12 @@ class container {
 		return _Data;
 	}
 public:
+	//destructor
 	~container() {
 		if (_Data != nullptr)
 			delete[] _Data;
 	}
+	//This function for adding something in container
 	void add(T _Val) {
 		T* _Temp = _Data;
 		_Data = _Resize();
@@ -39,6 +43,8 @@ public:
 		_Data[_Size] = _Val;
 		_Size++;
 	}
+	//This function allocates heap memory for the container
+	//May optimizate "add" function
 	void alloc(Uint32 _NewSize) {
 		if (_Data != nullptr)
 			delete[] _Data;
@@ -46,19 +52,25 @@ public:
 		_Capacity = _NewSize;
 		_Size = 0;
 	}
+	//Replacing the current data on the new
 	void replaceData(T* _NewData, Uint32 _NewSize) {
 		alloc(_NewSize);
 		_Size = _NewSize;
 		memcopy<T>(_Data, _NewData, _NewSize);
 	}
+	//This operator works like "get" on anything
 	T& operator[](Uint32 _Pos) {
 		return _Data[_Pos];
 	}
-	T* dataRef() { return _Data; }
 	T* data() const { return _Data; }
 	Uint32 capacity() const { return _Capacity; }
 	Uint32 size() const { return _Size; }
 	Uint64 currentbitsize() const { return (_Size * sizeof(T)); }
 };
+/*more*/
+/*some defines*/
+#define vec			container
+#define vector		container
+#define Container	container
 WL_NAMESPACE_END
 #endif //WINLIB_CONTAINER_HPP

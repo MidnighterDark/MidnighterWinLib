@@ -1,8 +1,8 @@
 #include <WL/Window/Text.hpp>
-#include <iostream>
 WL_NAMESPACE_BEGIN
 Text::Text(const String& text, const Font& font, Uint16 fontSize, Color color, const TextStyle& tStyle)
 {
+    _BackgroundTransparent = 1;
     _TextStyle = tStyle;
     _CreateTextHDC(_MaskHdc, text, font, fontSize, RGB(0, 0, 0), true, tStyle);
     _CreateTextHDC(_Hdc, text, font, fontSize, RGB(color.getColor().r, color.getColor().g, color.getColor().b), true, tStyle, false);
@@ -35,6 +35,13 @@ void Text::setTextStyle(const TextStyle& newStyle)
     _CreateTextHDC(_MaskHdc, _Text, _Font, _FontSize, RGB(0, 0, 0), false, _TextStyle, true);
     _CreateTextHDC(_Hdc, _Text, _Font, _FontSize, RGB(_Color.getColor().r, _Color.getColor().g, _Color.getColor().b), false, _TextStyle, false);
 }
+void Text::setBackground(bool isTransparent, const Color& color)
+{
+    _BackgroundColor = color;
+    _BackgroundTransparent = isTransparent;
+    _CreateTextHDC(_MaskHdc, _Text, _Font, _FontSize, RGB(0, 0, 0), false, _TextStyle, true);
+    _CreateTextHDC(_Hdc, _Text, _Font, _FontSize, RGB(_Color.getColor().r, _Color.getColor().g, _Color.getColor().b), false, _TextStyle, false);
+}
 String Text::getText() const
 {
     return _Text;
@@ -47,6 +54,10 @@ Uint16 Text::getFontSize() const
 {
     return _FontSize;
 }
+TextStyle Text::getTextStyle() const
+{
+    return _TextStyle;
+}
 void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uint16 fontSize, COLORREF colorref, bool isconstructor, const TextStyle& tStyle, bool ispw)
 {
     HFONT hFont = CreateFontW(
@@ -54,7 +65,7 @@ void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uin
         0,
         0,
         0,
-        FW_NORMAL,
+        tStyle.Weights,
         tStyle.Italic,
         tStyle.Underline,
         tStyle.StrikeOut,
@@ -66,7 +77,7 @@ void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uin
         font.getFontFamalyName().getLpcwstr()
     );
     //Initialization HDC
-    HDC hdc = GetDC(Core::GetHwndRef());
+    HDC hdc = GetDC(Core::GetHwndRef(0));
     if (_CrHdc != NULL) {
         DeleteObject(_CrHdc);
     }
@@ -87,7 +98,7 @@ void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uin
         _Scale = Vector2f(1.0f, 1.0f);
         _Root = Vector2i(0, 0);
     }
-    _Rect = IntRect(_Pos.x, _Pos.y, width, height);
+    _Rect = IntRect(_Pos.x, _Pos.y, _Pos.x + width, _Pos.y + height);
 
     //Create hBitmap
     BITMAPINFO bmi = { 0 };
@@ -123,8 +134,8 @@ void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uin
     }
 
     //Set style
-    SetBkColor(_CrHdc, RGB(0, 0, 0));
-    SetBkMode(_CrHdc, TRANSPARENT);
+    SetBkColor(_CrHdc, RGB(_BackgroundColor.getColor().r, _BackgroundColor.getColor().g, _BackgroundColor.getColor().b));
+    SetBkMode(_CrHdc, (_BackgroundTransparent == 1) ? TRANSPARENT : OPAQUE);
     SetTextColor(_CrHdc, colorref);
 
     //Draw text in HDC
@@ -132,6 +143,6 @@ void Text::_CreateTextHDC(HDC& _CrHdc, const String& text, const Font& font, Uin
 
     SelectObject(_CrHdc, hOldFont);
     DeleteObject(hFont);
-    ReleaseDC(Core::GetHwndRef(), hdc);
+    ReleaseDC(Core::GetHwndRef(0), hdc);
 }
 WL_NAMESPACE_END

@@ -17,8 +17,11 @@ bool Vector2<T>::operator==(const Vector2& varifable) const
 {
 	return (x == varifable.x && y == varifable.y);
 }
-typedef Vector2<Int32> Vector2i;
-typedef Vector2<float> Vector2f;
+typedef Vector2<Int32>	Vector2i;
+typedef Vector2<float>	Vector2f;
 typedef Vector2<double> Vector2d;
+typedef Vector2i		vec2i;
+typedef Vector2f		vec2f;
+typedef Vector2d		vec2d;
 WL_NAMESPACE_END
 #endif // WINLIB_VECTOR_HPP

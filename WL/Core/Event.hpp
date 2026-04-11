@@ -65,8 +65,7 @@ public:
 		KeyF11 = 122,
 	};
 };
-class Event {
-	bool keyState[256]{ false };
+class WINLIB_API Event {
 public:
 	enum _Ty {
 		Closed,
@@ -75,7 +74,6 @@ public:
 	};
 	_Ty type;
 	bool isPressed(Key::Type key) const;
-	bool (&getKeyState())[256];
 };
 WL_NAMESPACE_END
 #endif //WINLIB_EVENT_HPP

@@ -8,7 +8,7 @@ void Sprite::_CreateBitmap(HDC& _CrHdc, const Texture& _Tex, bool ism, bool isco
         _Scale = Vector2f(1.0f, 1.0f);
         _Root = Vector2i(0, 0);
     }
-    _Rect = IntRect(_Pos.x, _Pos.y, _Tex.getSize().x, _Tex.getSize().y);
+    _Rect = IntRect(_Pos.x, _Pos.y, _Pos.x + _Tex.getSize().x, _Pos.y + _Tex.getSize().y);
     _Size = Vector2i(_Tex.getSize().x, _Tex.getSize().y);
 
     //Create BITMAPINFO
@@ -22,12 +22,12 @@ void Sprite::_CreateBitmap(HDC& _CrHdc, const Texture& _Tex, bool ism, bool isco
     bmi.bmiHeader.biSizeImage = _Tex.getSize().x * _Tex.getSize().y * 4;
 
     //Initialization HDC
-    HDC hdc = GetDC(Core::GetHwndRef());
+    HDC hdc = GetDC(Core::GetHwndRef(0));
     if (_CrHdc != NULL) {
         DeleteObject(_CrHdc);
     }
     _CrHdc = CreateCompatibleDC(hdc);
-    ReleaseDC(Core::GetHwndRef(), hdc);
+    ReleaseDC(Core::GetHwndRef(0), hdc);
 
     if (_hHdcBitmap != NULL) {
         if (_hOldHdcBitmap == NULL) {

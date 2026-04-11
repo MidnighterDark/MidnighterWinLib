@@ -10,11 +10,11 @@ WL_NAMESPACE_BEGIN
 class Sprite : public Drawable {
 	Texture _Texture;
 public:
-	Sprite(const Texture& texture);
-	void setTexture(const Texture& texture);
-	const Texture& getTexture() const;
+	WINLIB_API Sprite(const Texture& texture);
+	WINLIB_API void				setTexture(const Texture& texture);
+	WINLIB_API const Texture&	getTexture() const;
 private:
-	void _CreateBitmap(HDC& _CrHdc, const Texture& _Tex, bool ism, bool isconstructor);
+	WINLIB_API void				_CreateBitmap(HDC& _CrHdc, const Texture& _Tex, bool ism, bool isconstructor);
 };
 WL_NAMESPACE_END
 #endif //WINLIB_SPRITE_HPP

@@ -39,6 +39,10 @@ Uint32 bigToLittle32Endian(Uint32 n) {
 Uint16 bigToLittleEndian(Uint16 n) {
     return ((n & 0xFF00) >> 8) | ((n & 0x00FF) << 8);
 }
+Font::Font(String fontFamalyName)
+{
+    _FontFamalyName = fontFamalyName;
+}
 Font::~Font()
 {
     RemoveFontResourceEx(_Path.getLpcwstr(), FR_PRIVATE, NULL);
@@ -92,5 +96,5 @@ String Font::getFontFamalyName() const
 {
     return _FontFamalyName;
 }
-const Font Font::DefaultOS;
+const Font Font::DefaultOS = Font();
 WL_NAMESPACE_END

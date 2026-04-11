@@ -6,9 +6,7 @@
 #include <string>
 #include <Windows.h>
 WL_NAMESPACE_BEGIN
-std::wstring _To_Wstring(const std::string& utf8_str);
-std::string _To_String(const std::wstring& wstr);
-class String {
+class WINLIB_API String {
 	std::wstring _Data;
 public:
 	String();
@@ -21,11 +19,11 @@ public:
 	void operator+=(const wchar_t* _Str);
 
 	static std::wstring toWideString(const std::string& utf8_str);
-	static std::string toNarrowString(const std::wstring& wstr);
+	static std::string	toNarrowString(const std::wstring& wstr);
 
-	std::wstring getWideString() const;
-	std::string getNarrowString() const;
-	LPCWSTR getLpcwstr() const;
+	std::wstring	getWideString() const;
+	std::string		getNarrowString() const;
+	LPCWSTR			getLpcwstr() const;
 private:
 };
 WL_NAMESPACE_END
