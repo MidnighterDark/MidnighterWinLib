@@ -87,6 +87,7 @@ a {
 	margin-left: 50%;
 }
 #news-scrollbar > #note {
+	user-select: text;
 	border: 1px solid black;
 	background-color: rgba(255, 255, 0, 0.1);
 	transform: translate(-50%, 0);
@@ -95,6 +96,13 @@ a {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+#news-scrollbar > #newtheame {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 b {
+	display: contents;
+}
+i {
 	display: contents;
 }
