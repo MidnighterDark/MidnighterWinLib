@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				c.style.animation = "none";
 			}, 250);
 		});
+
+	document.getElementsByTagName("DATE")[0].innerHTML =
+		new Date().getFullYear().toString() + String(" все права защищены.");
 	//Resize
 	document.addEventListener("resize", () => {});
 });
