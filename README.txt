@@ -1,4 +1,4 @@
 Created by:
-Midnighter, ONION, ONION-Studio
+Midnighter, MidnighterDark, ONION, ONION-Studio
 Created using:
 stbi_image.h
