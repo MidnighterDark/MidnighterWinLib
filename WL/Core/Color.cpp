@@ -18,10 +18,6 @@ Bool rgba::operator>(Uint8 val)
     else
         return 0;
 }
-Color::Color(Uint8 val, Uint8 alpha) : _R(val), _G(val), _B(val), _A(alpha)
-{
-    _Data = ((Uint32)alpha << 24) | ((Uint32)val << 16) | ((Uint32)val << 8) | ((Uint32)val);
-}
 Color::Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) : _R(r), _G(g), _B(b), _A(a)
 {
     _Data = ((Uint32)a << 24) | ((Uint32)r << 16) | ((Uint32)g << 8) | ((Uint32)b);

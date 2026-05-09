@@ -20,7 +20,7 @@ std::string _To_String(const std::wstring& wstr) {
 }
 String::String()
 {
-	_Data[0] = '\0';
+	_Data[0] = L'\0';
 }
 String::String(LPCSTR _Str)
 {
@@ -29,6 +29,14 @@ String::String(LPCSTR _Str)
 String::String(LPCWSTR _LpStr)
 {
     _Data = _LpStr;
+}
+String::String(std::string str)
+{
+    _Data = _To_Wstring(str);
+}
+String::String(std::wstring wstr)
+{
+    _Data = wstr;
 }
 void String::operator=(const char* _Str)
 {
@@ -66,5 +74,21 @@ std::string String::getNarrowString() const
 LPCWSTR String::getLpcwstr() const
 {
     return _Data.c_str();
+}
+String::operator const wchar_t* () const
+{
+    return _Data.c_str();
+}
+String::operator const char* () const
+{
+    return _To_String(_Data).c_str();
+}
+String::operator std::wstring() const
+{
+    return _Data;
+}
+String::operator std::string() const
+{
+    return _To_String(_Data);
 }
 WL_NAMESPACE_END

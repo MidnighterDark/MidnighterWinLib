@@ -111,7 +111,7 @@ void Window::setIcon(Uint32* _Pixels, Uint32 width, Uint32 height)
 	iconInfo.hbmMask = hBitmap;
 	iconInfo.hbmColor = hBitmap;
 	HICON hIcon = CreateIconIndirect(&iconInfo);
-	DeleteObject(hBitmap);
+	if (hBitmap != NULL) DeleteObject(hBitmap);
 	ReleaseDC(Core::GetHwndRef(_WindowIndex), hdcScreen);
 	if (_CurrentBiglIcon != NULL) {
 		DestroyIcon(_CurrentBiglIcon);
@@ -194,8 +194,8 @@ void Window::setCursor(Uint32* _Pixels, Uint32 width, Uint32 height, Vector2i ho
 
 	//Release DC / Delete objects
 	ReleaseDC(Core::GetHwndRef(_WindowIndex), hdc);
-	DeleteObject(maskBitmap);
-	DeleteObject(baseColorBitmap);
+	if (maskBitmap != NULL) DeleteObject(maskBitmap);
+	if (baseColorBitmap != NULL) DeleteObject(baseColorBitmap);
 }
 Vector2i Window::getLocalMousePos() const
 {

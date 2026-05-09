@@ -25,8 +25,6 @@ class WINLIB_API Color {
 public:
 	Color() = delete;
 	~Color() = default;
-	//This constructor setting rgb and alpha channel
-	Color(Uint8 val, Uint8 alpha);
 	//In this constructor you mast setting all parametrs
 	Color(Uint8 r, Uint8 g = 0, Uint8 b = 0, Uint8 a = 255);
 	//Return Uint32 data

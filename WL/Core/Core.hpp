@@ -10,7 +10,7 @@
 #define INTMIN    (-2147483647)
 #define INTMAX    2147483647
 #define UINTMAX   0xFFFFFFFF
-#define PI 3.1415926535f
+#define PI		  3.1415926535f
 //WINLIB_STATIC, WINLIB_EXPORTS and init WINLIB_API
 #ifdef WINLIB_STATIC
 	#define WINLIB_API
@@ -36,6 +36,8 @@ typedef unsigned short     Uint16;
 typedef unsigned int       Uint32;
 //Typedef for unsigned long long.
 typedef unsigned long long Uint64;
+//Custom unsigned size type
+typedef unsigned __int64   Usize; // Is this a unsigned long long type?
 //Typedef for signed char.
 typedef signed char        Int8;
 //Typedef for signed short.
@@ -44,8 +46,16 @@ typedef signed short	   Int16;
 typedef signed int         Int32;
 //Typedef for signed long long.
 typedef signed long long   Int64;
+//Custom signed size type
+typedef signed __int64	   Size; // Is this a signed long long type?
 //Custom boolean type
 typedef unsigned char      Bool;
+//I don't know why I created this struct and method in Core class
+typedef struct __PCPARAM__ {
+	int ScreenSizeX, ScreenSizeY;
+	wchar_t* PCName;
+} PCParametrs, * pPCParametrs, ** ppPCParametrs;
+//This is a Core class
 class Core {
 public:
 	//Get the current HWND reference.
@@ -55,7 +65,9 @@ public:
 	//Get current windows quantity
 	static WINLIB_API Uint16& GetWindowQuantity();
 	//Sleep for time
-	static WINLIB_API void    Delay(Uint32 mils);
+	static WINLIB_API void    Delay(Uint64 Uint64);
+	//This method was created for getting some parametrs of your pc
+	static WINLIB_API void	  GetPCParametrs(pPCParametrs dest);
 private:
 	Core() = delete;
 	~Core() = delete;

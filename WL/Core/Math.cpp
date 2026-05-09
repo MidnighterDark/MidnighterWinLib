@@ -1,5 +1,23 @@
 #include <WL/Core/Math.hpp>
+#undef __max
+#undef __min
 WL_NAMESPACE_BEGIN
+template<typename T>
+inline T __max(T a, T b) {
+	if (a >= b)
+		return a;
+	else if (b > a)
+		return b;
+	return 0;
+}
+template<typename T>
+inline T __min(T a, T b) {
+	if (a <= b)
+		return a;
+	else if (b < a)
+		return b;
+	return 0;
+}
 math::f32 math::clamp(f32 val, f32 min, f32 max)
 {
 	if (val >= max)
@@ -63,21 +81,29 @@ math::f32 math::ndegree(f32 degree, char _Ty)
 	}
 	return -1;
 }
+math::i32 math::max(i32 first, i32 second)
+{
+	return __max<i32>(first, second);
+}
+math::i32 math::min(i32 first, i32 second)
+{
+	return __min<i32>(first, second);
+}
 math::f32 math::max(f32 first, f32 second)
 {
-	if (first >= second)
-		return first;
-	else if (second > first)
-		return second;
-	return 0;
+	return __max<f32>(first, second);
 }
 math::f32 math::min(f32 first, f32 second)
 {
-	if (first <= second)
-		return first;
-	else if (second < first)
-		return second;
-	return 0;
+	return __min<f32>(first, second);
+}
+math::i64 math::max(i64 first, i64 second)
+{
+	return __max<i64>(first, second);
+}
+math::i64 math::min(i64 first, i64 second)
+{
+	return __min<i64>(first, second);
 }
 WL_NAMESPACE_END
 

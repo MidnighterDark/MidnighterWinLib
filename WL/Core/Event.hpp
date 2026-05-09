@@ -6,7 +6,16 @@
 #include <WL/Core/Vector.hpp>
 WL_NAMESPACE_BEGIN
 namespace Mouse {
-	Vector2i getGlobalMousePos();
+	struct Buttons {
+		enum Type {
+			LeftButton = 1,
+			RightButton = 2,
+		};
+	};
+	//This function returns a mouse position of screen
+	Vector2i WINLIB_API getGlobalMousePos();
+	//This function checks the status of the mouse key
+	bool	 WINLIB_API isButtonPressed(Buttons::Type key);
 }
 class Key {
 public:
@@ -73,7 +82,10 @@ public:
 		None,
 	};
 	_Ty type;
-	bool isPressed(Key::Type key) const;
+	//This function simulation press of key
+	static void simulateKeyPress(Key::Type key, Uint32 delay_mils, bool isCreateNewThread);
 };
+//This function checks the status of the key
+bool WINLIB_API isButtonPressed(Key::Type key);
 WL_NAMESPACE_END
 #endif //WINLIB_EVENT_HPP
