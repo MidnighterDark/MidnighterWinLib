@@ -28,982 +28,1125 @@
 
 		<link rel="shortcut icon" href="res/icon.png" type="image/x-icon" />
 		<link rel="stylesheet" href="main_page.css" />
-		<script src="main_page.js"></script>
 		<title>Midnighter WinLib</title>
+		<script type="module" src="main_page.js"></script>
+		<script></script>
 	</head>
 	<body>
-		<div class="something-hide">
-			<div id="download-list">
-				<div
-					style="
-						width: 700px;
-						height: 500px;
-						border: 1px solid black;
-						background-color: white;
-						margin: 100%;
-						margin-top: 50%;
-						transform: translate(-50%, -50%);
-						box-shadow: 55px 55px 0px rgba(0, 0, 0, 0.8);
-					"
-				>
-					<div>
-						<img
-							id="close-download-list"
-							src="res/imgclose.png"
-							alt="Закрыть"
-							style="
-								position: fixed;
-								width: 4%;
-								margin-left: 95%;
-								margin-top: 1%;
-							"
-						/>
-					</div>
-					<!--This is a box-->
-					<h2
+		<noscript>
+			<p>
+				Pleas enable java script in your browser's settings.
+			</p></noscript
+		>
+		<div id="_body-tag-main-html" style="display: none">
+			<script>
+				document.getElementById("_body-tag-main-html").style.display =
+					"block";
+			</script>
+			<div class="something-hide">
+				<div id="download-list" style="margin-left: 0px">
+					<div
+						id="main-background-box-of-download-list"
 						style="
-							font-size: 20px;
-							margin-left: 350px;
-							transform: translate(-30%, 0%);
+							width: 700px;
+							height: 500px;
+							border: 1px solid black;
+							background-color: rgb(255, 255, 255);
+							margin: 100%;
+							margin-top: 50%;
+							transform: translate(-50%, -50%);
+							box-shadow: 55px 55px 0px rgba(0, 0, 0, 0.8);
 						"
 					>
-						Download WinLib:
-					</h2>
-					<div style="display: flex; gap: 67%; margin-top: 50px">
-						<h2 style="margin: 0; margin-left: 10%"><b>.zip</b></h2>
-						<h2 style="margin: 0"><b>.rar</b></h2>
-					</div>
-					<div style="display: flex; margin-top: 20px">
-						<div
-							style="
-								width: 200px;
-								height: 300px;
-								border: 1px solid;
-							"
-						>
-							<a
-								href="javascript:checkURL('rdownload/'+_current_download_res_select + '.zip')"
-								><p id="_download_list_link_zip_text"></p
-							></a>
+						<div>
+							<img
+								id="close-download-list"
+								src="res/imgclose.png"
+								alt="Закрыть"
+								style="
+									position: fixed;
+									width: 4%;
+									margin-left: 95%;
+									margin-top: 1%;
+								"
+							/>
 						</div>
-						<div
+						<!--This is a box-->
+						<h2
 							style="
-								width: 200px;
-								height: 300px;
-								border: 1px solid;
-								margin-left: 45%;
+								font-size: 20px;
+								margin-left: 350px;
+								transform: translate(-52%, 0%);
+								text-wrap-mode: nowrap;
 							"
 						>
-							<a href="javascript:alert('Временно недоступно!!!')"
-								><p id="_download_list_link_rar_text"></p
-							></a>
+							Варианты скачивания MidnighterWinLib:
+						</h2>
+						<div style="display: flex; gap: 67%; margin-top: 50px">
+							<h2 style="margin: 0; margin-left: 10%">
+								<b>.zip</b>
+							</h2>
+							<h2 style="margin: 0"><b>.rar</b></h2>
+						</div>
+						<div style="display: flex; margin-top: 20px">
+							<div
+								style="
+									width: 200px;
+									height: 300px;
+									border: 1px solid;
+								"
+							>
+								<a
+									href="javascript:checkURL('rdownload/'+__get_current_download_res_select()+'.zip')"
+									><p id="_download_list_link_zip_text"></p
+								></a>
+							</div>
+							<div
+								style="
+									width: 200px;
+									height: 300px;
+									border: 1px solid;
+									margin-left: 45%;
+								"
+							>
+								<a
+									href="javascript:checkURL('rdownload/'+__get_current_download_res_select()+'.rar')"
+									><p id="_download_list_link_rar_text"></p
+								></a>
+							</div>
 						</div>
 					</div>
 				</div>
+				<div id="settings-list" style="position: fixed; display: none">
+					<div id="settings-list-background">
+						<section>
+							<label for="enable-desable-dark-theme"
+								>Включить темную тему </label
+							><input
+								id="enable-desable-dark-theme"
+								type="checkbox"
+								style="scale: 1.2; transform: translateY(25%)"
+								onclick="__enable_dark_theme(this.checked)"
+							/>
+						</section>
+					</div>
+				</div>
 			</div>
-		</div>
-		<!--header-->
-		<div class="header-page">
-			<img
-				src="res/icon.png"
-				alt="icon"
-				style="position: absolute; width: 3%"
-			/>
-			<p
-				style="
-					font-size: 30px;
-					margin-top: 10px;
-					margin-left: 60px;
-					padding-top: 5px;
-				"
-			>
-				Midnighter WinLib
-			</p>
-			<div id="header-background"></div>
-		</div>
-		<!--body-->
-		<div class="body-page">
-			<div id="background-left-banner">
-				<h4
+			<!--header-->
+			<div class="header-page">
+				<img
+					src="res/icon.png"
+					alt="icon"
+					style="position: absolute; width: 50px; height: 50px"
+				/>
+				<p
 					style="
-						transform: translate(-50%, 0);
-						margin-left: 50%;
+						font-size: 40px;
 						margin-top: 10px;
+						margin-left: 50%;
+						transform: translate(-30%, -2%);
+						padding-top: 5px;
 						margin-bottom: 10px;
+						color: rgba(0, 0, 0, 1);
 					"
 				>
-					Скачать:
-				</h4>
-				<a href="javascript:set_cdrs('MidnighterWinLib1.2v')"
-					>Download WinLib v1.2</a
-				><br />
-				<a href="javascript:set_cdrs('MidnighterWinLib1.2vSourceCode')"
-					>Download WinLib v1.2 source code</a
-				><br />
-				<a href="javascript:set_cdrs('MidnighterWinLib1.1v')"
-					>Download WinLib v1.1</a
-				><br />
-				<a href="javascript:set_cdrs('MidnighterWinLib1.1vSourceCode')"
-					>Download WinLib v1.1 source code</a
-				><br />
-				<a href="javascript:set_cdrs('MidnighterWinLibv1.0')"
-					>Download WinLib v1.0</a
-				><br />
-				<a href="javascript:set_cdrs('MidnighterWinLibv1.0SourceCode')"
-					>Download WinLib v1.0 source code</a
-				><br />
+					ᴍɪᴅɴɪɢʜᴛᴇʀ ᴡɪɴʟɪʙ
+				</p>
+				<img
+					id="icon-button-settings"
+					src="res/3070361.png"
+					alt="set"
+					style="
+						position: absolute;
+						width: 50px;
+						height: 50px;
+						margin-top: -64px;
+					"
+				/>
+				<div id="header-background"></div>
 			</div>
-			<div id="news-page">
-				<h2 style="margin-left: 50%; transform: translate(-20%, 0)">
-					Новости
-				</h2>
-				<div id="news-scrollbar">
-					<p id="header">Сегодня я выпустил обновление 1.2!!!</p>
-					<p>
-						Если честно библиотека стала немножко лучше (это не
-						значит что она лучше стала работать) по прежнему есть
-						кривожопости которые буду по возможности (здесь имееться
-						в виду мои возможности (умственные) и GDI (не умственные
-						а технические)) улучшать эту безнадегу но мне интересно
-						заниматься разработкой WinLib (не подумайте что я
-						застрял в прошлом и не хочу принять Direct2D, и
-						Direct3D, и OpenGL).
-					</p>
-					<p style="font-size: 12px">
-						Еще я хочу создать Rutube канал но мне лень так что
-						ждите... Все может быть.
+			<!--body-->
+			<div class="body-page">
+				<div id="background-left-banner">
+					<h4
+						style="
+							transform: translate(-50%, 0);
+							margin-left: 50%;
+							margin-top: 10px;
+							margin-bottom: 10px;
+						"
+					>
+						Скачать:
+					</h4>
+					<a href="javascript:set_cdrs('MidnighterWinLib1.3v')"
+						>Download WinLib v1.3</a
+					><br />
+					<a
+						href="javascript:set_cdrs('MidnighterWinLib1.3vSourceCode')"
+						>Download WinLib v1.3 source code</a
+					><br />
+					<a href="javascript:set_cdrs('MidnighterWinLib1.2v')"
+						>Download WinLib v1.2</a
+					><br />
+					<a
+						href="javascript:set_cdrs('MidnighterWinLib1.2vSourceCode')"
+						>Download WinLib v1.2 source code</a
+					><br />
+					<a href="javascript:set_cdrs('MidnighterWinLib1.1v')"
+						>Download WinLib v1.1</a
+					><br />
+					<a
+						href="javascript:set_cdrs('MidnighterWinLib1.1vSourceCode')"
+						>Download WinLib v1.1 source code</a
+					><br />
+					<a href="javascript:set_cdrs('MidnighterWinLibv1.0')"
+						>Download WinLib v1.0</a
+					><br />
+					<a
+						href="javascript:set_cdrs('MidnighterWinLibv1.0SourceCode')"
+						>Download WinLib v1.0 source code</a
+					><br />
+				</div>
+				<div id="news-page">
+					<h2 style="margin-left: 50%; transform: translate(-20%, 0)">
+						Новости
+					</h2>
+					<div id="news-scrollbar">
+						<p id="header">Сегодня я выпустил обновление 1.3!!!</p>
+						<p>
+							Сегодня я не поленюсь и добавлю краткий check-list,
+							того что я добавил.
+							<br />
+							Check-list:
+							<br />
+							<i id="newtheame"><b>Добавлена</b></i>
+							статичная функция simulateKeyPress для эмитации
+							нажатия на кнопку на определенное время (в
+							зависимости от третьего параметра может задержать
+							родительский поток).
+							<br />
+							<i id="newtheame"><b>Изменена</b></i> функция
+							isPressed. Теперь isButtonPressed в пространстве
+							имен wl.
+							<br />
+							<i id="newtheame"><b>Добавлена</b></i> в
+							пространство имен wl::Mouse функция isButtonPressed
+							принимающая в качестве аргумента перечисление
+							wl::Mouse::Buttons::Type (функция
+							wl::Mouse::isButtonPressed сделана отдельно для
+							удобства. Хотя...).
+							<br />
+							<i id="newtheame"><b>Добавлены</b></i> функции
+							Append и Length в wl::Vector2. Append добавляет
+							вектор к вектору, а Length возвращает длину вектора.
+							<br />
+							<i id="newtheame"><b>Так же добавлены</b></i> разные
+							эксперементальные функции и классы. Подробнее на
+							Rutube.
+						</p>
+						<p id="header">Сегодня я выпустил обновление 1.2!!!</p>
+						<p>
+							Если честно библиотека стала немножко лучше (это не
+							значит что она лучше стала работать) по прежнему
+							есть кривожопости которые буду по возможности (здесь
+							имееться в виду мои возможности (умственные) и GDI
+							(не умственные а технические)) улучшать эту
+							безнадегу но мне интересно заниматься разработкой
+							WinLib (не подумайте что я застрял в прошлом и не
+							хочу принять Direct2D, и Direct3D, и OpenGL).
+						</p>
+						<p style="font-size: 12px">
+							Ура чудо случилось и я дошел (не до ручки) а просто
+							руки дошли до создания Rutube канала в общем ссылка
+							теперь АКТИВНА!!!
+							<br />
+							Всегда читайте, что мелким шрифтом написано и
+							никогда под этим не <b>ПОДПИСЫВАЙТЕСЬ</b>!!!
+						</p>
+						<p id="header">Сегодня я выпустил обновление 1.1!!!</p>
+						<p>
+							Документации пока нет (есть рукаводство), да и
+							вообще я создал эту библиотеку ради интереса.
+						</p>
 						<br />
-						Всегда читайте, что мелким шрифтом написано и никогда
-						под этим не <b>ПОДПИСЫВАЙТЕСЬ</b>!!!
-					</p>
-					<p id="header">Сегодня я выпустил обновление 1.1!!!</p>
-					<p>
-						Документации пока нет (есть рукаводство), да и вообще я
-						создал эту библиотеку ради интереса.
-					</p>
-					<br />
-					<p>
-						Вряд ли кто-нибудь захочет ею (библиотекой)
-						воспользоваться.
-					</p>
-					<br />
-					<p id="header" style="text-wrap-mode: nowrap">
-						------------------------------------------------------------------------------------------------
-					</p>
-					<br />
-					<p id="header">Вот краткий обзор классов и их методов:</p>
-					<p id="note" style="user-select: none">
-						Данная библиотека создана для работы с GDI и WindowsAPI,
-						что в сущьности включено одно в другое.
-					</p>
-					<br />
+						<p>
+							Вряд ли кто-нибудь захочет ею (библиотекой)
+							воспользоваться.
+						</p>
+						<br />
+						<p id="header" style="text-wrap-mode: nowrap">
+							------------------------------------------------------------------------------------------------
+						</p>
+						<br />
+						<p id="header">
+							Вот краткий обзор классов и их методов:
+						</p>
+						<p id="note" style="user-select: none">
+							Данная библиотека создана для работы с GDI и
+							WindowsAPI, что в сущьности включено одно в другое.
+						</p>
+						<br />
+						<p
+							style="
+								transform: translateX(-50%);
+								margin-left: 50%;
+								text-wrap-mode: nowrap;
+							"
+						>
+							WinLib работает на GDI и создана для статических
+							интерфейсов (анимаций по минимуму).
+						</p>
+						<br />
+						<p id="header">Класс wl::Window</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Window.hpp&gt</p>
+						<br />
+						<i id="newtheame"><b>Конструктор wl::Window</b></i>
+						<br />
+						<p>
+							Класс wl::Window для создания окна. Окон может быть
+							(технически) до 10000 (зависит от технических
+							возможностей пк и версии Windows).
+						</p>
+						<br />
+						<p>
+							Первый параметр в конструкторе wl::Window это
+							wl::WindowTransform для редактирования позиции и
+							размера окна.
+						</p>
+						<br />
+						<p>
+							Структура wl::WindowTransform хранит в себе posX,
+							posY, sizeX, sizeY отвечающие соответственно за
+							положение окна по X и Y координатам и за размер по
+							тем-же координатам.
+						</p>
+						<br />
+						<p>
+							Второй параметр конструктора wl::Window это строка
+							либо узкая, либо широкая - это заголовок окна.
+						</p>
+						<br />
+						<p>
+							Третий и последний параметр это стиль окна.
+							<br />
+							Стили окна:
+							<br />
+							<b>Default</b> - зто стандартный стиль. Включает в
+							себя все стандарнтные кнопки и иконки окна, а так-же
+							загаловок.
+							<br />
+							<b>DefaultNoResize</b> - это тот-же
+							<b>Default</b> только без возможности изменения
+							размера.
+							<br />
+							<b>Border</b> - это голое окно. Просто барьер
+							определённого размера.
+							<br />
+							<b>Fullscreen</b> - этот стиль обычно пременяют в
+							играх он растягивает окно на весь экран.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::isOpen</b></i>
+						<br />
+						<p>
+							Просто возвращает открыто ли окно то есть создано ли
+							оно. Возвращает true если окно у данного wl::Window
+							есть и false если нет.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::setTitle</b></i>
+						<br />
+						<p>
+							Принимает один аргумент (тип аргумента строка узкая
+							или широкая) и меняет заголовок окна на поданый
+							аргумент.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::setIcon</b></i>
+						<br />
+						<p>
+							Принимает первым аргументом массив пикселей
+							(Uint32), вторым ширину той области которую
+							используем в изображении, третим высоту используемой
+							облости.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::setCursor</b></i>
+						<br />
+						<p>
+							Принемает такие-же аргументы как и
+							wl::Window::setIcon, но к ним добавился аргумент
+							hotPos типа wl::Vector2i(о нем позднее), который
+							определяет точку которая и будет курсорм ((0,0) -
+							это координаты верхнего левого угла изображения).
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::Window::getLocalMousePos</b></i
+						>
+						<br />
+						<p>Возвращает положение курсора относительно окна.</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::Window::setLocalCursorPos</b></i
+						>
+						<br />
+						<p>
+							Задает положение курсора относительно окна
+							(аргументами x, y, которые соответствуют осям).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::listenEvents</b></i>
+						<br />
+						<p>
+							Первым аргументом подаеться объект wl::Event (о нем
+							позднее), который принимает и обрабатывет события,
+							которые обнаружила wl::Window::listenEvents.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::clear</b></i>
+						<br />
+						<p>
+							Первым аргментом подаеться wl::Color (о нем
+							позднее), который содержит цвет, которым нужно
+							залить (закрасить) окно удалив все содержимое.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::draw</b></i>
+						<br />
+						<p>
+							Принимает первым аргментом объект Drawable (о нем
+							позднее), от которого наследуються все элементы для
+							отрисовки и рисует их в буфер.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::display</b></i>
+						<br />
+						<p>Отрисовывает буфер в окно.</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::close</b></i>
+						<br />
+						<p>Закрывает окно и делает isOpen false.</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::fpsLimiter</b></i>
+						<br />
+						<p>
+							Принимает первым аргументом колличество fps выше
+							которого нельзя обновлять картинку то есть в игровом
+							цикле он просто вызывает Core::Delay (о нем позднее)
+							если сльшком быстро обновился цикл.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::getPosition</b></i>
+						<br />
+						<p>
+							Возвращает позицию окна в wl::Vector2i (о нем
+							позднее).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::setPosition</b></i>
+						<br />
+						<p>
+							Задает позицию окна на экране (аргументами x, y,
+							которые соответствуют осям).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::getSize</b></i>
+						<br />
+						<p>
+							Возвращает размер окна в wl::Vector2i (о нем
+							позднее).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::setSize</b></i>
+						<br />
+						<p>
+							Задает размеры окна (аргументами x, y, которые
+							соответствуют осям).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Window::getTitle</b></i>
+						<br />
+						<p>
+							Возвращает загаловок окна в wl::String (о нем
+							позднее).
+						</p>
+						<br />
+						<!--wl::Event-->
+						<p id="header">Класс wl::Event</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Event.hpp&gt</p>
+						<br />
+						<p>
+							Класс wl::Event очень простой и содержит всего один
+							метод и одну переменную.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Event::type</b></i>
+						<br />
+						<p>
+							Именно эту переменную заполняет
+							wl::Window::listenEvents.
+						</p>
+						<br />
+						<p>Возможные значения wl::Event::type:</p>
+						<br />
+						<p>
+							<b>Closed</b> - окно закрываеться при этом isOpen
+							еще не сработал значит окно только в процессе.
+						</p>
+						<br />
+						<p>
+							<b>Resized</b> - окно изменило либо изменили размер.
+						</p>
+						<br />
+						<p><b>None</b> - ничего не происходит.</p>
+						<br />
+						<i id="newtheame"><b>wl::isButtonPressed</b></i>
+						<br />
+						<p>
+							Принимает в качестве аргумента уникальный номер
+							кнопки которые храняться в wl::Key (о нем позднее).
+						</p>
+						<br />
+						<!--wl::Key-->
+						<p id="header">Класс wl::Key</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Event.hpp&gt</p>
+						<br />
+						<p>
+							Хранит enum номеров кнопок. Пример wl::Key::KeyA это
+							значит проверить нажатие 'A'.
+						</p>
+						<br />
+						<!--wl::Core-->
+						<p id="header">Класс wl::Core</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Core.hpp&gt</p>
+						<br />
+						<p>
+							Это класс ядро (опасный), в котором кроме методов
+							Delay и GetWindowQuantity (не изменяя
+							WindowQuantity) лучше ничем не пользоваться.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Core::Delay</b></i>
+						<br />
+						<p>
+							Останавливает выполнение потока на определеноое
+							время, которое подается в первый аргумент (в
+							миллисекундах).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Core::GetWindowQuantity</b></i>
+						<br />
+						<p>
+							Возвращает ссылку (Внимание ссылку!!! изменять
+							только при закрытии окна на -1 или лучше вообще не
+							трогать если нет нужды) на статическую переменную
+							хрянящую в себе колличество созданных когда либо
+							окон.
+						</p>
+						<br />
+						<p>Остальные функции лучше не трогать.</p>
+						<br />
+						<!--wl::Color-->
+						<p id="header">Класс wl::Color</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Color.hpp&gt</p>
+						<br />
+						<i id="newtheame"><b>Конструктор wl::Color</b></i>
+						<br />
+						<p>
+							Первым, вторым, третим и четвертым вводяться всем
+							известные RGBA.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Color::getData</b></i>
+						<br />
+						<p>
+							Возвращает весь цвет в Uint32 первый байт a, второй
+							r, третий g, четвертый b.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Color::getColor</b></i>
+						<br />
+						<p>
+							Возвращает структуру rgba (которая хранит каналы r,
+							g, b, a).
+						</p>
+						<br />
+						<p>
+							Так-же доступны статические цвета, такие как:
+							<b>White</b>, <b>Black</b>, <b>Red</b>,
+							<b>Green</b> и <b>Blue</b>.
+						</p>
+						<br />
+						<!--wl::Vector2-->
+						<p id="header">Класс wl::Vector2</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Vector.hpp&gt</p>
+						<br />
+						<p>
+							Этот класс очень прост и хранит всего две
+							переменные.
+						</p>
+						<br />
+						<p>Переменная x чаще для x координаты.</p>
+						<br />
+						<p>Переменная y чаще для y координаты.</p>
+						<br />
+						<!--wl::String-->
+						<p id="header">Класс wl::String</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/String.hpp&gt</p>
+						<br />
+						<p>
+							Данный класс хранит текст в широких строках но может
+							принимать и в узких.
+							<br />
+							Класс wl::String прелоставляет два статических
+							метода.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>static wl::String::toWideString</b></i
+						>
+						<br />
+						<p>
+							Принимает в качестве аргумента узкую строку и
+							возвращает широкую.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>static wl::String::toNarrowString</b></i
+						>
+						<br />
+						<p>
+							Принимает в качестве аргумента широкую строку и
+							возвращает узкую.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::String::getWideString</b></i>
+						<br />
+						<p>
+							Возвращает широкую строку хранимую в данном
+							wl::String.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::String::getNarrowString</b></i>
+						<br />
+						<p>
+							Возвращает узкую строку хранимую в данном
+							wl::String.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::String::getLpcwstr</b></i>
+						<br />
+						<p>Возвращает хранимую строку в формате LPCWSTR.</p>
+						<br />
+						<!--wl::Rect-->
+						<p id="header">Класс wl::Rect</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Rect.hpp&gt</p>
+						<br />
+						<p>
+							Здесь как и с Vector это просто контейнер для
+							хронения прямоугольника top - это позиция по Y, left
+							- по X (Внимание right и bottom - это локальные
+							размеры изображения. right - по X, bottom - по Y).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Rect&lt;T&gt;::contains</b></i>
+						<br />
+						<p>
+							Принимает позицию в Vector2i и проверяет находиться
+							лм данная позиция в прямоугольнике.
+						</p>
+						<br />
+						<!--wl::Container-->
+						<p id="header">Класс wl::container</p>
+						<br />
+						<p id="note">#include &lt;WL/Core/Container.hpp&gt</p>
+						<br />
+						<p>
+							Данный класс являеться подобием std::vector. T - это
+							тип хранимых объектов.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::container&lt;T&gt;::add</b></i>
+						<br />
+						<p>
+							Принимает в качестве аргумента объект который надо
+							добавить к контейнеру.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::alloc</b></i
+						>
+						<br />
+						<p>
+							Сначала полностью очищает контейнер а потом выделяет
+							нужную память в куче контейнера (например чтобы
+							оптимизировать
+							<i id="newtheame"
+								><b>wl::container&lt;T&gt;::add</b></i
+							>).
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::replaceData</b></i
+						>
+						<br />
+						<p>Заменяет данные в контейнере.</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::data</b></i
+						>
+						<br />
+						<p>
+							Возвращает константную ссылку на данные хрянящиеся в
+							контейнере.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::capacity</b></i
+						>
+						<br />
+						<p>Возвращает вместимость контейнера.</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::size</b></i
+						>
+						<br />
+						<p>
+							Возвращает колличество объектов хранимых на данный
+							момент в контейнере.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::container&lt;T&gt;::currentbitsize</b></i
+						>
+						<br />
+						<p>Возвращает вместимость контейнера в битах.</p>
+						<br />
+						<!--wl::Texture-->
+						<p id="header">Класс wl::Texture</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Texture.hpp&gt;</p>
+						<br />
+						<p>
+							Главным образом хранит массив пикселей изображения.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::create</b></i>
+						<br />
+						<p>
+							Эта функция создает текстуру определенного размера и
+							заливает её сплошным, указанным в первом аргументе,
+							цветом.
+						</p>
+						<br />
+						<p>
+							Первым параметром принимает цвет, второй праметр
+							отвечает за ширину картинки, третий за высоту.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::loadFromTDF</b></i>
+						<br />
+						<p>
+							Формат TDF - это Texture Data File где первые два
+							байта (unsigned short) - это ширана в пикселях,
+							вторые два байта (unsigned short) - это высота в
+							пикселях, дальше идет массив пиксилей в Uint32*.
+							<br />
+							Функция загружает TDF файл.
+						</p>
+						<br />
+						<p>
+							Первый аргумент путь к файлу в виде широкой либо
+							узкой строки.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::loadFromBMP</b></i>
+						<br />
+						<p>Загружает 24битный BMP файл.</p>
+						<br />
+						<p>
+							Первый аргумент путь к файлу в виде широкой либо
+							узкой строки.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::loadFromPNG</b></i>
+						<br />
+						<p>Загружает 32битный PNG файл.</p>
+						<br />
+						<p>
+							Первый аргумент путь к файлу в виде широкой либо
+							узкой строки.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::getSize</b></i>
+						<br />
+						<p>
+							Возвращает Vector2i где X отвечает за штрину, Y за
+							высоту изображания.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::getPixelsData</b></i>
+						<br />
+						<p>Возвращает массив пиксилей (Uint32*).</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::getPixelsSize</b></i>
+						<br />
+						<p>Возвращает количество пикселей в изображении.</p>
+						<br />
+						<!--wl::Font-->
+						<p id="header">Класс wl::Font</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Font.hpp&gt;</p>
+						<br />
+						<p>Этот класс хранит только имя шрифта.</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::loadFromFile</b></i>
+						<br />
+						<p>Загружает файл шрифта TTF (True Type Font).</p>
+						<br />
+						<p>
+							Первым аргументом принимает путь к файлу шрифта TTF.
+						</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::Texture::getFontFamalyName</b></i
+						>
+						<br />
+						<p>
+							Возвращает имя шрифта, которое загрузил
+							<i id="newtheame"
+								><b>wl::Texture::loadFromFile</b></i
+							>.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Texture::DefaultOS</b></i>
+						<br />
+						<p>Переменная обозначающая шрифт по умолчанию.</p>
+						<br />
+						<!--wl::Drawable-->
+						<p id="header">Класс wl::Drawable</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Drawable.hpp&gt;</p>
+						<br />
+						<p>
+							Это главный класс отрисовки и трансформации в WinLib
+							так как от него наследуються все класса типа
+							wl::Text, wl::Sprite (о них позднее).
+							<br />
+							Он хранит данные о перемещении, изменении размера,
+							координаты корня, вращение, масштаб и прямоугольник
+							(коллизию) элемента в IntRect (о нем выше).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getPosition</b></i>
+						<br />
+						<p>
+							Возвращает Vector2i где X - это позиция по X то есть
+							по горизонтали (относительно окна), а Y - это
+							позиция по Y то есть по вертикали направленой вниз
+							(относительно окна).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getScale</b></i>
+						<br />
+						<p>
+							Возвращает масштаб в Vector2f где X масштаб по X, а
+							Y иасштаб по Y.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getRoot</b></i>
+						<br />
+						<p>
+							Возвращает позицию корня относительно элемента.
+							Корень - это точка, относительно которой
+							распологается элемент.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getOrgin</b></i>
+						<br />
+						<p>
+							Возвращает позицию источника относительно элемента.
+							Источник - это точка, относительно которой
+							отображается, вращается элемент.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getSize</b></i>
+						<br />
+						<p>Возвращает текущий размер изображения в пикселях.</p>
+						<br />
+						<i id="newtheame"
+							><b>wl::Drawable::getGlobalBounds</b></i
+						>
+						<br />
+						<p>
+							Возвращает прямоугольник (IntRect о нем выше)
+							который занимает изображение.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::getAngle</b></i>
+						<br />
+						<p>
+							Возвращает текущий наклон изображения (советую
+							использовать
+							<i id="newtheame"><b>wl::math::ndegree</b></i> (о
+							ней позднее), которая приводит любой угол либо к то
+							-180 до 180, либо от 0 до 360).
+							<br />
+							N180DG - для того, чтобы привести вращение
+							(Эйлеровский угол) к от -180 до 180.
+							<br />
+							N360DG - для того, чтобы привести вращение
+							(Эйлеровский угол) к от 0 до 360.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setPosition</b></i>
+						<br />
+						<p>
+							Первый аргумент прнимает новую позицию по X, второй
+							новую позицию по Y.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setScale</b></i>
+						<br />
+						<p>
+							Задает масштаб по X и Y то есть растягивает либо
+							сжимает пиксели.
+							<br />
+							Первый аргумент масштаб по X, второй по Y.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setSize</b></i>
+						<br />
+						<p>
+							Задает сколько пикселей надо рендерить у данного
+							изображения.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setRoot</b></i>
+						<br />
+						<p>
+							Задает корень элемента (корень - это локальное
+							начало координат элемента).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setOrgin</b></i>
+						<br />
+						<p>
+							Задает источник изображение (источник - это
+							относительно чего отображаеться элемент).
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Drawable::setAngle</b></i>
+						<br />
+						<p>
+							Задает вращение элементу (плохо оптимизировано).
+							<br />
+							Принимает вращение в эйлеровских углах.
+						</p>
+						<br />
+						<!--wl::Sprite-->
+						<p id="header">Класс wl::Sprite</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Sprite.hpp&gt;</p>
+						<br />
+						<i id="newtheame"><b>Конструктор wl::Sprite</b></i>
+						<br />
+						<p>
+							Принимает текстуру (wl::Texture), которую надо будет
+							отобразить.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Sprite::setTexture</b></i>
+						<br />
+						<p>
+							Принимает первым аргументом текстуру (wl::Texture),
+							и заменяет старую текстуру на полученную.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Sprite::getTexture</b></i>
+						<br />
+						<p>Возвращает текущую текстуру.</p>
+						<br />
+						<!--wl::Text-->
+						<p id="header">Класс wl::Text</p>
+						<br />
+						<p id="note">#include &lt;WL/Window/Text.hpp&gt;</p>
+						<br />
+						<p>
+							Этот класс по интереснее
+							<i id="newtheame"><b>wl::Sprite</b></i> но так-же
+							просто как и все в этой библиотеке.
+						</p>
+						<br />
+						<i id="newtheame"><b>Конструктор wl::Text</b></i>
+						<br />
+						<p>
+							Первым аргументом конструктора являеться строка либо
+							широкая либо узкая - это текст который надо
+							отобразить.
+							<br />
+							Вторым аргументом идет шрифт (<i>wl::Font</i> о нем
+							выше).
+							<br />
+							Третим аргументом размер одного символа в строке
+							учитывая размер в шрифте.
+							<br />
+							Четвертым аргументом идет цвет (<i>wl::Color</i> о
+							нем выше).
+							<br />
+							Пятым аргументом подается структура отвечающая за
+							стиль шрифта (wl::TextStyle о ней далее).
+						</p>
+						<br />
+						<i id="newtheame"><b>Конструктор wl::TextStyle</b></i>
+						<br />
+						<p>
+							<b>Italic</b> - этот пораметр отвечает за то, будет
+							ли шрифт наклонным.
+						</p>
+						<br />
+						<p>
+							<b>Underline</b> - этот пораметр отвечает за то,
+							будет ли шрифт подчеркнутым.
+						</p>
+						<br />
+						<p>
+							<b>StrikeOut</b> - этот пораметр отвечает за то,
+							будет ли шрифт вычеркнутым.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::setText</b></i>
+						<br />
+						<p>
+							Принимает аргументом строку (здесь и далее - узкую и
+							широкую).
+						</p>
+						<br />
+						<p>Заменяет текст на полученую строку.</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::setFont</b></i>
+						<br />
+						<p>
+							Принимает в качестве аргумента вышерассмотреный
+							wl::Font.
+						</p>
+						<br />
+						<p>И заменяет старый шрифт вышеполученым.</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::setFontSize</b></i>
+						<br />
+						<p>
+							Принимает в качестве аргумента новый размер символа
+							и заменяет на него старый.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::setTextStyle</b></i>
+						<br />
+						<p>
+							Принимает в качестве аргумента структуру
+							wl::TextStyle и заменяет старую на полученную.
+						</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::getText</b></i>
+						<br />
+						<p>Возвращает текущий текст в классе.</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::getFont</b></i>
+						<br />
+						<p>Возвращает текущий используемый шрифт.</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::getFontSize</b></i>
+						<br />
+						<p>Возвращает текущий размер символа.</p>
+						<br />
+						<i id="newtheame"><b>wl::Text::getTextStyle</b></i>
+						<br />
+						<p>Возвращает текущий стиль шрифта.</p>
+						<br />
+						<!--End docs-->
+						<p id="header">
+							Краткое руководство создано: Midnighter.
+						</p>
+						<br />
+					</div>
+				</div>
+				<div id="background-right-banner">
 					<p
 						style="
+							position: absolute;
+							margin-left: 5px;
+							text-align: center;
+						"
+					>
+						Гневить, коментировать,сообщать об ошибках:
+						<br />
+						<b style="user-select: text"
+							>midnighterdark@gmail.com</b
+						>
+					</p>
+					<br />
+					<a
+						style="
+							position: absolute;
+							margin-top: 100px;
 							transform: translateX(-50%);
 							margin-left: 50%;
 							text-wrap-mode: nowrap;
+							font-size: 18px;
 						"
+						href="javascript:void(0);"
+						onclick="
+							window.open(
+								'https:/\/rutube.ru/channel/50621461/',
+								'_blank',
+							)
+						"
+						>Мой Rutub канал</a
 					>
-						WinLib работает на GDI и создана для статических
-						интерфейсов (анимаций по минимуму).
-					</p>
-					<br />
-					<p id="header">Класс wl::Window</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Window.hpp&gt</p>
-					<br />
-					<i id="newtheame"><b>Конструктор wl::Window</b></i>
-					<br />
-					<p>
-						Класс wl::Window для создания окна. Окон может быть
-						(технически) до 10000 (зависит от технических
-						возможностей пк и версии Windows).
-					</p>
-					<br />
-					<p>
-						Первый параметр в конструкторе wl::Window это
-						wl::WindowTransform для редактирования позиции и размера
-						окна.
-					</p>
-					<br />
-					<p>
-						Структура wl::WindowTransform хранит в себе posX, posY,
-						sizeX, sizeY отвечающие соответственно за положение окна
-						по X и Y координатам и за размер по тем-же координатам.
-					</p>
-					<br />
-					<p>
-						Второй параметр конструктора wl::Window это строка либо
-						узкая, либо широкая - это заголовок окна.
-					</p>
-					<br />
-					<p>
-						Третий и последний параметр это стиль окна.
-						<br />
-						Стили окна:
-						<br />
-						<b>Default</b> - зто стандартный стиль. Включает в себя
-						все стандарнтные кнопки и иконки окна, а так-же
-						загаловок.
-						<br />
-						<b>DefaultNoResize</b> - это тот-же
-						<b>Default</b> только без возможности изменения размера.
-						<br />
-						<b>Border</b> - это голое окно. Просто барьер
-						определённого размера.
-						<br />
-						<b>Fullscreen</b> - этот стиль обычно пременяют в играх
-						он растягивает окно на весь экран.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::isOpen</b></i>
-					<br />
-					<p>
-						Просто возвращает открыто ли окно то есть создано ли
-						оно. Возвращает true если окно у данного wl::Window есть
-						и false если нет.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setTitle</b></i>
-					<br />
-					<p>
-						Принимает один аргумент (тип аргумента строка узкая или
-						широкая) и меняет заголовок окна на поданый аргумент.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setIcon</b></i>
-					<br />
-					<p>
-						Принимает первым аргументом массив пикселей (Uint32),
-						вторым ширину той области которую используем в
-						изображении, третим высоту используемой облости.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setCursor</b></i>
-					<br />
-					<p>
-						Принемает такие-же аргументы как и wl::Window::setIcon,
-						но к ним добавился аргумент hotPos типа wl::Vector2i(о
-						нем позднее), который определяет точку которая и будет
-						курсорм ((0,0) - это координаты верхнего левого угла
-						изображения).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::getLocalMousePos</b></i>
-					<br />
-					<p>Возвращает положение курсора относительно окна.</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setLocalCursorPos</b></i>
-					<br />
-					<p>
-						Задает положение курсора относительно окна (аргументами
-						x, y, которые соответствуют осям).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::listenEvents</b></i>
-					<br />
-					<p>
-						Первым аргументом подаеться объект wl::Event (о нем
-						позднее), который принимает и обрабатывет события,
-						которые обнаружила wl::Window::listenEvents.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::clear</b></i>
-					<br />
-					<p>
-						Первым аргментом подаеться wl::Color (о нем позднее),
-						который содержит цвет, которым нужно залить (закрасить)
-						окно удалив все содержимое.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::draw</b></i>
-					<br />
-					<p>
-						Принимает первым аргментом объект Drawable (о нем
-						позднее), от которого наследуються все элементы для
-						отрисовки и рисует их в буфер.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::display</b></i>
-					<br />
-					<p>Отрисовывает буфер в окно.</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::close</b></i>
-					<br />
-					<p>Закрывает окно и делает isOpen false.</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::fpsLimiter</b></i>
-					<br />
-					<p>
-						Принимает первым аргументом колличество fps выше
-						которого нельзя обновлять картинку то есть в игровом
-						цикле он просто вызывает Core::Delay (о нем позднее)
-						если сльшком быстро обновился цикл.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::getPosition</b></i>
-					<br />
-					<p>
-						Возвращает позицию окна в wl::Vector2i (о нем позднее).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setPosition</b></i>
-					<br />
-					<p>
-						Задает позицию окна на экране (аргументами x, y, которые
-						соответствуют осям).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::getSize</b></i>
-					<br />
-					<p>
-						Возвращает размер окна в wl::Vector2i (о нем позднее).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::setSize</b></i>
-					<br />
-					<p>
-						Задает размеры окна (аргументами x, y, которые
-						соответствуют осям).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Window::getTitle</b></i>
-					<br />
-					<p>
-						Возвращает загаловок окна в wl::String (о нем позднее).
-					</p>
-					<br />
-					<!--wl::Event-->
-					<p id="header">Класс wl::Event</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Event.hpp&gt</p>
-					<br />
-					<p>
-						Класс wl::Event очень простой и содержит всего один
-						метод и одну переменную.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Event::type</b></i>
-					<br />
-					<p>
-						Именно эту переменную заполняет
-						wl::Window::listenEvents.
-					</p>
-					<br />
-					<p>Возможные значения wl::Event::type:</p>
-					<br />
-					<p>
-						<b>Closed</b> - окно закрываеться при этом isOpen еще не
-						сработал значит окно только в процессе.
-					</p>
-					<br />
-					<p><b>Resized</b> - окно изменило либо изменили размер.</p>
-					<br />
-					<p><b>None</b> - ничего не происходит.</p>
-					<br />
-					<i id="newtheame"><b>wl::Event::isPressed</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента уникальный номер кнопки
-						которые храняться в wl::Key (о нем позднее).
-					</p>
-					<br />
-					<!--wl::Key-->
-					<p id="header">Класс wl::Key</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Event.hpp&gt</p>
-					<br />
-					<p>
-						Хранит enum номеров кнопок. Пример wl::Key::KeyA это
-						значит проверить нажатие 'A'.
-					</p>
-					<br />
-					<!--wl::Core-->
-					<p id="header">Класс wl::Core</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Core.hpp&gt</p>
-					<br />
-					<p>
-						Это класс ядро (опасный), в котором кроме методов Delay
-						и GetWindowQuantity (не изменяя WindowQuantity) лучше
-						ничем не пользоваться.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Core::Delay</b></i>
-					<br />
-					<p>
-						Останавливает выполнение потока на определеноое время,
-						которое подается в первый аргумент (в миллисекундах).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Core::GetWindowQuantity</b></i>
-					<br />
-					<p>
-						Возвращает ссылку (Внимание ссылку!!! изменять только
-						при закрытии окна на -1 или лучше вообще не трогать если
-						нет нужды) на статическую переменную хрянящую в себе
-						колличество созданных когда либо окон.
-					</p>
-					<br />
-					<p>Остальные функции лучше не трогать.</p>
-					<br />
-					<!--wl::Color-->
-					<p id="header">Класс wl::Color</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Color.hpp&gt</p>
-					<br />
-					<i id="newtheame"><b>Конструктор wl::Color</b></i>
-					<br />
-					<p>
-						Первым, вторым, третим и четвертым вводяться всем
-						известные RGBA.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Color::getData</b></i>
-					<br />
-					<p>
-						Возвращает весь цвет в Uint32 первый байт a, второй r,
-						третий g, четвертый b.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Color::getColor</b></i>
-					<br />
-					<p>
-						Возвращает структуру rgba (которая хранит каналы r, g,
-						b, a).
-					</p>
-					<br />
-					<p>
-						Так-же доступны статические цвета, такие как:
-						<b>White</b>, <b>Black</b>, <b>Red</b>, <b>Green</b> и
-						<b>Blue</b>.
-					</p>
-					<br />
-					<!--wl::Vector2-->
-					<p id="header">Класс wl::Vector2</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Vector.hpp&gt</p>
-					<br />
-					<p>Этот класс очень прост и хранит всего две переменные.</p>
-					<br />
-					<p>Переменная x чаще для x координаты.</p>
-					<br />
-					<p>Переменная y чаще для y координаты.</p>
-					<br />
-					<!--wl::String-->
-					<p id="header">Класс wl::String</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/String.hpp&gt</p>
-					<br />
-					<p>
-						Данный класс хранит текст в широких строках но может
-						принимать и в узких.
-						<br />
-						Класс wl::String прелоставляет два статических метода.
-					</p>
-					<br />
-					<i id="newtheame"><b>static wl::String::toWideString</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента узкую строку и возвращает
-						широкую.
-					</p>
-					<br />
-					<i id="newtheame"
-						><b>static wl::String::toNarrowString</b></i
-					>
-					<br />
-					<p>
-						Принимает в качестве аргумента широкую строку и
-						возвращает узкую.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::String::getWideString</b></i>
-					<br />
-					<p>
-						Возвращает широкую строку хранимую в данном wl::String.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::String::getNarrowString</b></i>
-					<br />
-					<p>Возвращает узкую строку хранимую в данном wl::String.</p>
-					<br />
-					<i id="newtheame"><b>wl::String::getLpcwstr</b></i>
-					<br />
-					<p>Возвращает хранимую строку в формате LPCWSTR.</p>
-					<br />
-					<!--wl::Rect-->
-					<p id="header">Класс wl::Rect</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Rect.hpp&gt</p>
-					<br />
-					<p>
-						Здесь как и с Vector это просто контейнер для хронения
-						прямоугольника top - это позиция по Y, left - по X
-						(Внимание right и bottom - это локальные размеры
-						изображения. right - по X, bottom - по Y).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Rect&lt;T&gt;::contains</b></i>
-					<br />
-					<p>
-						Принимает позицию в Vector2i и проверяет находиться лм
-						данная позиция в прямоугольнике.
-					</p>
-					<br />
-					<!--wl::Container-->
-					<p id="header">Класс wl::container</p>
-					<br />
-					<p id="note">#include &lt;WL/Core/Container.hpp&gt</p>
-					<br />
-					<p>
-						Данный класс являеться подобием std::vector. T - это тип
-						хранимых объектов.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::container&lt;T&gt;::add</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента объект который надо
-						добавить к контейнеру.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::container&lt;T&gt;::alloc</b></i>
-					<br />
-					<p>
-						Сначала полностью очищает контейнер а потом выделяет
-						нужную память в куче контейнера (например чтобы
-						оптимизировать
-						<i id="newtheame"><b>wl::container&lt;T&gt;::add</b></i
-						>).
-					</p>
-					<br />
-					<i id="newtheame"
-						><b>wl::container&lt;T&gt;::replaceData</b></i
-					>
-					<br />
-					<p>Заменяет данные в контейнере.</p>
-					<br />
-					<i id="newtheame"><b>wl::container&lt;T&gt;::data</b></i>
-					<br />
-					<p>
-						Возвращает константную ссылку на данные хрянящиеся в
-						контейнере.
-					</p>
-					<br />
-					<i id="newtheame"
-						><b>wl::container&lt;T&gt;::capacity</b></i
-					>
-					<br />
-					<p>Возвращает вместимость контейнера.</p>
-					<br />
-					<i id="newtheame"><b>wl::container&lt;T&gt;::size</b></i>
-					<br />
-					<p>
-						Возвращает колличество объектов хранимых на данный
-						момент в контейнере.
-					</p>
-					<br />
-					<i id="newtheame"
-						><b>wl::container&lt;T&gt;::currentbitsize</b></i
-					>
-					<br />
-					<p>Возвращает вместимость контейнера в битах.</p>
-					<br />
-					<!--wl::Texture-->
-					<p id="header">Класс wl::Texture</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Texture.hpp&gt;</p>
-					<br />
-					<p>Главным образом хранит массив пикселей изображения.</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::create</b></i>
-					<br />
-					<p>
-						Эта функция создает текстуру определенного размера и
-						заливает её сплошным, указанным в первом аргументе,
-						цветом.
-					</p>
-					<br />
-					<p>
-						Первым параметром принимает цвет, второй праметр
-						отвечает за ширину картинки, третий за высоту.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::loadFromTDF</b></i>
-					<br />
-					<p>
-						Формат TDF - это Texture Data File где первые два байта
-						(unsigned short) - это ширана в пикселях, вторые два
-						байта (unsigned short) - это высота в пикселях, дальше
-						идет массив пиксилей в Uint32*.
-						<br />
-						Функция загружает TDF файл.
-					</p>
-					<br />
-					<p>
-						Первый аргумент путь к файлу в виде широкой либо узкой
-						строки.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::loadFromBMP</b></i>
-					<br />
-					<p>Загружает 24битный BMP файл.</p>
-					<br />
-					<p>
-						Первый аргумент путь к файлу в виде широкой либо узкой
-						строки.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::loadFromPNG</b></i>
-					<br />
-					<p>Загружает 32битный PNG файл.</p>
-					<br />
-					<p>
-						Первый аргумент путь к файлу в виде широкой либо узкой
-						строки.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::getSize</b></i>
-					<br />
-					<p>
-						Возвращает Vector2i где X отвечает за штрину, Y за
-						высоту изображания.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::getPixelsData</b></i>
-					<br />
-					<p>Возвращает массив пиксилей (Uint32*).</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::getPixelsSize</b></i>
-					<br />
-					<p>Возвращает количество пикселей в изображении.</p>
-					<br />
-					<!--wl::Font-->
-					<p id="header">Класс wl::Font</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Font.hpp&gt;</p>
-					<br />
-					<p>Этот класс хранит только имя шрифта.</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::loadFromFile</b></i>
-					<br />
-					<p>Загружает файл шрифта TTF (True Type Font).</p>
-					<br />
-					<p>Первым аргументом принимает путь к файлу шрифта TTF.</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::getFontFamalyName</b></i>
-					<br />
-					<p>
-						Возвращает имя шрифта, которое загрузил
-						<i id="newtheame"><b>wl::Texture::loadFromFile</b></i
-						>.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Texture::DefaultOS</b></i>
-					<br />
-					<p>Переменная обозначающая шрифт по умолчанию.</p>
-					<br />
-					<!--wl::Drawable-->
-					<p id="header">Класс wl::Drawable</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Drawable.hpp&gt;</p>
-					<br />
-					<p>
-						Это главный класс отрисовки и трансформации в WinLib так
-						как от него наследуються все класса типа wl::Text,
-						wl::Sprite (о них позднее).
-						<br />
-						Он хранит данные о перемещении, изменении размера,
-						координаты корня, вращение, масштаб и прямоугольник
-						(коллизию) элемента в IntRect (о нем выше).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getPosition</b></i>
-					<br />
-					<p>
-						Возвращает Vector2i где X - это позиция по X то есть по
-						горизонтали (относительно окна), а Y - это позиция по Y
-						то есть по вертикали направленой вниз (относительно
-						окна).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getScale</b></i>
-					<br />
-					<p>
-						Возвращает масштаб в Vector2f где X масштаб по X, а Y
-						иасштаб по Y.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getRoot</b></i>
-					<br />
-					<p>
-						Возвращает позицию корня относительно элемента. Корень -
-						это точка, относительно которой распологается элемент.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getOrgin</b></i>
-					<br />
-					<p>
-						Возвращает позицию источника относительно элемента.
-						Источник - это точка, относительно которой отображается,
-						вращается элемент.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getSize</b></i>
-					<br />
-					<p>Возвращает текущий размер изображения в пикселях.</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getGlobalBounds</b></i>
-					<br />
-					<p>
-						Возвращает прямоугольник (IntRect о нем выше) который
-						занимает изображение.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::getAngle</b></i>
-					<br />
-					<p>
-						Возвращает текущий наклон изображения (советую
-						использовать
-						<i id="newtheame"><b>wl::math::ndegree</b></i> (о ней
-						позднее), которая приводит любой угол либо к то -180 до
-						180, либо от 0 до 360).
-						<br />
-						N180DG - для того, чтобы привести вращение (Эйлеровский
-						угол) к от -180 до 180.
-						<br />
-						N360DG - для того, чтобы привести вращение (Эйлеровский
-						угол) к от 0 до 360.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setPosition</b></i>
-					<br />
-					<p>
-						Первый аргумент прнимает новую позицию по X, второй
-						новую позицию по Y.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setScale</b></i>
-					<br />
-					<p>
-						Задает масштаб по X и Y то есть растягивает либо сжимает
-						пиксели.
-						<br />
-						Первый аргумент масштаб по X, второй по Y.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setSize</b></i>
-					<br />
-					<p>
-						Задает сколько пикселей надо рендерить у данного
-						изображения.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setRoot</b></i>
-					<br />
-					<p>
-						Задает корень элемента (корень - это локальное начало
-						координат элемента).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setOrgin</b></i>
-					<br />
-					<p>
-						Задает источник изображение (источник - это относительно
-						чего отображаеться элемент).
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Drawable::setAngle</b></i>
-					<br />
-					<p>
-						Задает вращение элементу (плохо оптимизировано).
-						<br />
-						Принимает вращение в эйлеровских углах.
-					</p>
-					<br />
-					<!--wl::Sprite-->
-					<p id="header">Класс wl::Sprite</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Sprite.hpp&gt;</p>
-					<br />
-					<i id="newtheame"><b>Конструктор wl::Sprite</b></i>
-					<br />
-					<p>
-						Принимает текстуру (wl::Texture), которую надо будет
-						отобразить.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Sprite::setTexture</b></i>
-					<br />
-					<p>
-						Принимает первым аргументом текстуру (wl::Texture), и
-						заменяет старую текстуру на полученную.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Sprite::getTexture</b></i>
-					<br />
-					<p>Возвращает текущую текстуру.</p>
-					<br />
-					<!--wl::Text-->
-					<p id="header">Класс wl::Text</p>
-					<br />
-					<p id="note">#include &lt;WL/Window/Text.hpp&gt;</p>
-					<br />
-					<p>
-						Этот класс по интереснее
-						<i id="newtheame"><b>wl::Sprite</b></i> но так-же просто
-						как и все в этой библиотеке.
-					</p>
-					<br />
-					<i id="newtheame"><b>Конструктор wl::Text</b></i>
-					<br />
-					<p>
-						Первым аргументом конструктора являеться строка либо
-						широкая либо узкая - это текст который надо отобразить.
-						<br />
-						Вторым аргументом идет шрифт (<i>wl::Font</i> о нем
-						выше).
-						<br />
-						Третим аргументом размер одного символа в строке
-						учитывая размер в шрифте.
-						<br />
-						Четвертым аргументом идет цвет (<i>wl::Color</i> о нем
-						выше).
-						<br />
-						Пятым аргументом подается структура отвечающая за стиль
-						шрифта (wl::TextStyle о ней далее).
-					</p>
-					<br />
-					<i id="newtheame"><b>Конструктор wl::TextStyle</b></i>
-					<br />
-					<p>
-						<b>Italic</b> - этот пораметр отвечает за то, будет ли
-						шрифт наклонным.
-					</p>
-					<br />
-					<p>
-						<b>Underline</b> - этот пораметр отвечает за то, будет
-						ли шрифт подчеркнутым.
-					</p>
-					<br />
-					<p>
-						<b>StrikeOut</b> - этот пораметр отвечает за то, будет
-						ли шрифт вычеркнутым.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::setText</b></i>
-					<br />
-					<p>
-						Принимает аргументом строку (здесь и далее - узкую и
-						широкую).
-					</p>
-					<br />
-					<p>Заменяет текст на полученую строку.</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::setFont</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента вышерассмотреный
-						wl::Font.
-					</p>
-					<br />
-					<p>И заменяет старый шрифт вышеполученым.</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::setFontSize</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента новый размер символа и
-						заменяет на него старый.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::setTextStyle</b></i>
-					<br />
-					<p>
-						Принимает в качестве аргумента структуру wl::TextStyle и
-						заменяет старую на полученную.
-					</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::getText</b></i>
-					<br />
-					<p>Возвращает текущий текст в классе.</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::getFont</b></i>
-					<br />
-					<p>Возвращает текущий используемый шрифт.</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::getFontSize</b></i>
-					<br />
-					<p>Возвращает текущий размер символа.</p>
-					<br />
-					<i id="newtheame"><b>wl::Text::getTextStyle</b></i>
-					<br />
-					<p>Возвращает текущий стиль шрифта.</p>
-					<br />
-					<!--End docs-->
-					<p id="header">Краткое руководство создано: Midnighter.</p>
-					<br />
 				</div>
 			</div>
-			<div id="background-right-banner">
+			<!--footer-->
+			<div class="footer-page">
 				<p
 					style="
 						position: absolute;
-						margin-left: 5px;
-						text-align: center;
+						font-size: 12px;
+						margin-top: 740px;
 					"
 				>
-					Гневить, коментировать,сообщать об ошибках:
+					Создавая этот сайт я не хотел никого оскорбить (или осудить)
+					все что здесь написано - это инструкция (не обязательно к
+					выполнению) либо прикол.
 					<br />
-					<b style="user-select: text">midnighterdark@gmail.com</b>
+					Создатель (создатели) библиотеки MidnighterWinLib не несут
+					ответственность за сделанное (написанное) на библиотеке
+					(MidnighterWinLib).
+					<br />
+					Оставаясь (пользуясь) сайтом и библиотекой MidnighterWinLib
+					вы подтверждаете описанное выше.
+					<br />
+					©<COPYRIGHT />
 				</p>
-				<br />
-				<a
-					style="
-						position: absolute;
-						margin-top: 100px;
-						transform: translateX(-50%);
-						margin-left: 50%;
-						text-wrap-mode: nowrap;
-						font-size: 18px;
-					"
-					href="javascript:void(0);"
-					onclick="
-						window.open(
-							'https:/\/rutube.ru/channel/50621461/',
-							'_blank',
-						)
-					"
-					>Мой Rutub канал</a
-				>
 			</div>
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
+			<br /><br /><br /><br />
 		</div>
-		<!--footer-->
-		<div class="footer-page">
-			<p style="position: absolute; font-size: 12px; margin-top: 740px">
-				Создавая этот сайт я не хотел никого оскорбить (или осудить) все
-				что здесь написано - это инструкция (не обязательно к
-				выполнению) либо прикол.
-				<br />
-				Создатель (создатели) библиотеки MidnighterWinLib не несут
-				ответственность за сделанное (написанное) на библиотеке
-				(MidnighterWinLib).
-				<br />
-				Оставаясь (пользуясь) сайтом и библиотекой MidnighterWinLib вы
-				подтверждаете описанное выше.
-				<br />
-				©<COPYRIGHT />
-			</p>
-		</div>
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
-		<br /><br /><br /><br />
 	</body>
 </html>
