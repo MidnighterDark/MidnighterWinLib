@@ -1,4 +1,5 @@
 import * as __MYJSLIB from "./my-library-js-custom/my-library-js-custom.js";
+import * as __MYSHIZ from "./myshiz/myshiz.main.js";
 //On document loaded
 var _current_download_res_select = "n";
 var _domLoad = false;
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				c.style.display = "none";
 				c.style.animation = "none";
 			}, 250);
+			console.log(__MYSHIZ.getWhatTheUserEnteredOnThePageData());
 		});
 	document
 		.getElementById("icon-button-settings")
@@ -169,15 +171,19 @@ export function __enable_dark_theme(is) {
 	const nsl = document.getElementById("news-scrollbar");
 	const sl = document.getElementById("settings-list-background");
 	let cp;
+	let dttc;
 	if (is == true) {
 		cp = "rgb(25, 25, 25)";
+		dttc = "rgba(200,200,200,1)";
 	} else if (is == false) {
 		cp = "rgb(250, 250, 250)";
+		dttc = "rgba(0,0,0,1)";
 	} else {
 		console.log("Error parametr 'is' has incorrect value!!!");
 	}
 	bb.style.backgroundColor = cp;
 	nsl.style.backgroundColor = cp;
 	sl.style.backgroundColor = cp;
+	bb.style.color = dttc;
 }
 window.__enable_dark_theme = __enable_dark_theme;

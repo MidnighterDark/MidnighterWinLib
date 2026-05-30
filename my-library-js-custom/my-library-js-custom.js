@@ -10,7 +10,7 @@ document.addEventListener("focusin", () => {
 document.addEventListener("focusout", () => {
 	data[1] = false;
 });
-class myjslib {
+export class myjslib {
 	checkDOMLoaded() {
 		return Boolean(data[0]);
 	}
@@ -18,6 +18,7 @@ class myjslib {
 		return Boolean(data[1]);
 	}
 }
+window.myjslib = myjslib;
 function includeJsScript(url) {
 	var script = document.createElement("script");
 	script.src = url;
